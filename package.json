@@ -1,0 +1,14 @@
+{
+  "name": "huemul-immortal",
+  "version": "0.0.1",
+  "description": "keeps hubots alive, specially in Heroku free instances",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Jorge Epuñan | @csslab",
+  "license": "MIT",
+  "dependencies": {
+    "curlrequest": "^0.5.7"
+  }
+}
