@@ -1,5 +1,5 @@
 {
-  "name": "huemul-immortal",
+  "name": "hubot-immortal",
   "version": "0.0.1",
   "description": "keeps hubots alive, specially in Heroku free instances",
   "main": "index.js",
