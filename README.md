@@ -2,11 +2,13 @@
 
 > keeps hubots alive, specially in Heroku free instances
 
+[![npm version](https://badge.fury.io/js/hubot-immortal.svg)](https://badge.fury.io/js/hubot-immortal)
+
 ### Use:
 
-1. Clone this repository and change variables to suit your Hubot.
-2. Upload it to a NodeJS server. I recommend use [Now](https://zeit.co/now) service.
-3. Relax. Your Hubot will not sleep ever again. 😲
+1. Clone this repository and change variables within _index.js_ to suit your Hubot.
+2. Upload it to a NodeJS server. I recommend using the cool [Now](https://zeit.co/now) service.
+3. Relax. Your Hubot should be awake day and night. 😲
 
 ### License:
 

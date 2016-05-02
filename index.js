@@ -1,5 +1,6 @@
 var curl = require('curlrequest');
 
+// SET YOUR OWN VARIABLES:
 var hubotURL = 'HUBOTNAME.herokuapp.com'; // Heroku's Hubot URL
 var timeOut = 600000; // every 6 minutes
 
@@ -9,8 +10,10 @@ var options = {
 	stderr: true
 };
 
-// INIT
+
+// INIT :
 console.log('Starting up!');
+
 
 // LOOP!
 setInterval(function(){

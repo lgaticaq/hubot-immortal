@@ -3,12 +3,21 @@
   "version": "0.0.1",
   "description": "keeps hubots alive, specially in Heroku free instances",
   "main": "index.js",
+  "dependencies": {
+    "curlrequest": "^0.5.7"
+  },
   "scripts": {
     "start": "node index.js"
   },
+  "keywords": [
+    "hubot",
+    "keepalive",
+    "slack"
+  ],
   "author": "Jorge Epuñan | @csslab",
   "license": "MIT",
-  "dependencies": {
-    "curlrequest": "^0.5.7"
-  }
+  "bugs": {
+    "url": "https://github.com/juanbrujo/hubot-immortal/issues"
+  },
+  "homepage": "https://github.com/juanbrujo/hubot-immortal#readme"
 }
