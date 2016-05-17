@@ -6,7 +6,7 @@
 
 ### Use:
 
-1. Clone this repository and change variables within _index.js_ to suit your Hubot.
+1. Clone this repository and set environment variable HUBOT_URL to suit your Hubot.
 2. Upload it to a NodeJS server. I recommend using the cool [Now](https://zeit.co/now) service.
 3. Relax. Your Hubot should be awake day and night. 😲
 
