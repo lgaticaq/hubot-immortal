@@ -1,15 +1,18 @@
-# Hubot Immortal
+# Docker Hubot Immortal
 
-> keeps hubots alive, specially in Heroku free instances
-
-[![npm version](https://badge.fury.io/js/hubot-immortal.svg)](https://badge.fury.io/js/hubot-immortal)
+> keeps hubots alive, specially in Heroku free instances. Inspired by [hubot-immortal](https://github.com/juanbrujo/hubot-immortal)
 
 ### Use:
 
-1. Clone this repository and set environment variable HUBOT_URL to suit your Hubot.
-2. Upload it to a NodeJS server. I recommend using the cool [Now](https://zeit.co/now) service.
-3. Relax. Your Hubot should be awake day and night. 😲
+```bash
+# Run instance
+docker run -d -p 3000:3000 -v db:/opt/app/db --name hubot-immortal lgatica/hubot-immortal:latest
+# Post new host
+curl -d url=your_host hubot-immortal-ip:3000
+# Get all hosts
+curl hubot-immortal-ip:3000
+```
 
 ### License:
 
-* [MIT](LICENSE)
+[MIT](https://tldrlegal.com/license/mit-license)
