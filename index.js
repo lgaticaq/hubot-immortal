@@ -1,23 +1,51 @@
-var curl = require('curlrequest');
+'use strict';
 
-// SET YOUR OWN VARIABLES:
-var hubotURL = process.env.HUBOT_URL; // Heroku's Hubot URL
-var timeOut = 600000; // every 6 minutes
+const http = require('http');
+const path = require('path');
+const curl = require('curlrequest');
+const express = require('express');
+const bodyParser = require('body-parser');
+const errorHandler = require('express-error-handler');
+const leveldb = require('levelup');
+const Promise = require('bluebird');
 
-var options = {
-	url: hubotURL,
-	verbose: true,
-	stderr: true
+const db = leveldb(path.join(__dirname, 'db'));
+
+Promise.promisifyAll(Object.getPrototypeOf(db));
+Promise.promisifyAll(curl);
+
+const app = express();
+const server = http.createServer(app);
+app.use(bodyParser.json());
+const timeOut = 600000; // every 6 minutes
+
+const getHosts = () => db.getAsync('hosts').then(JSON.parse).catch(() => []);
+
+const saveHost = url => {
+  return getHosts().then(hosts => {
+    if (!hosts.find(x => x === url)) hosts.push(url);
+    hosts = JSON.stringify(hosts);
+    return db.putAsync('hosts', hosts);
+  });
 };
 
+const pingHosts = () => getHosts().then(hosts => Promise.all(hosts.map(x => curl.requestAsync(x))));
 
-// INIT :
-console.log('Starting up!');
+// get all hosts
+app.get('/', (req, res, next) => {
+  getHosts().then(hosts => res.json(hosts)).catch(next);
+});
 
+// post new host
+app.post('/', (req, res, next) => {
+  saveHost(req.body.url).then(() => res.sendStatus(200)).catch(next);
+});
 
-// LOOP!
-setInterval(function(){
-	curl.request(options, function(err, data) {
-		console.log(data);
-	});
+// error handler
+app.use(errorHandler({server: server}));
+
+server.listen(3000);
+
+setInterval(() => {
+  pingHosts().then(console.log).catch(console.log); // eslint-disable-line
 }, timeOut);

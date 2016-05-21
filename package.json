@@ -4,10 +4,16 @@
   "description": "keeps hubots alive, specially in Heroku free instances",
   "main": "index.js",
   "dependencies": {
-    "curlrequest": "^0.5.7"
+    "bluebird": "^3.4.0",
+    "body-parser": "^1.15.1",
+    "curlrequest": "^0.5.7",
+    "express": "^4.13.4",
+    "express-error-handler": "^1.1.0",
+    "level": "^1.4.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint ."
   },
   "keywords": [
     "hubot",
@@ -19,5 +25,33 @@
   "bugs": {
     "url": "https://github.com/juanbrujo/hubot-immortal/issues"
   },
-  "homepage": "https://github.com/juanbrujo/hubot-immortal#readme"
+  "homepage": "https://github.com/juanbrujo/hubot-immortal#readme",
+  "devDependencies": {
+    "eslint": "^2.10.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+      "indent": [
+        2,
+        2
+      ],
+      "linebreak-style": [
+        2,
+        "unix"
+      ],
+      "quotes": [
+        2,
+        "single"
+      ],
+      "semi": [
+        2,
+        "always"
+      ]
+    }
+  }
 }
