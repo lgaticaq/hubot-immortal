@@ -34,3 +34,4 @@ node_modules
 
 # environment variable file
 .env
+db
