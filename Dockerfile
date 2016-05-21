@@ -1,6 +1,6 @@
 FROM mhart/alpine-node
 
-MAINTAINER Jorge Epuñan
+MAINTAINER Leonardo Gatica <lgatica@protonmail.com>
 
 RUN apk add --no-cache curl
 
